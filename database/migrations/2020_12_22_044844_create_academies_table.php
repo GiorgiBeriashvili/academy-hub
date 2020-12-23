@@ -16,6 +16,7 @@ class CreateAcademiesTable extends Migration
     {
         Schema::create('academies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('name');
             $table->string('logo')->nullable();
             $table->enum('country', Constants::countries);

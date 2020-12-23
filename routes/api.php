@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\TagController;
+use App\Http\Controllers\Api\TokenController;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\ValidationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/token', [TokenController::class, 'store'])->name('token.store');
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::resource('tags', TagController::class);
+//    Route::resource('users', UserController:class);
 });

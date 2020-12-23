@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             AcademySeeder::class,
             TagSeeder::class,
             AcademyTagSeeder::class,
+            PhotographSeeder::class,
         ]);
     }
 }

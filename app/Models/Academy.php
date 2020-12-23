@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Academy
@@ -32,5 +33,13 @@ class Academy extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class)->withTimestamps()->using(AcademyTag::class);
+    }
+
+    /**
+     * The photographs that belong to the academy.
+     */
+    public function photographs(): HasMany
+    {
+        return $this->hasMany(Photograph::class);
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\TagController;
 use App\Http\Controllers\Api\TokenController;
+use App\Http\Controllers\Api\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -23,5 +24,5 @@ Route::post('/token', [TokenController::class, 'store'])->name('token.store');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('tags', TagController::class);
-//    Route::resource('users', UserController:class);
+    Route::resource('users', UserController::class);
 });

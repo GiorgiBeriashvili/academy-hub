@@ -63,4 +63,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Academy::class);
     }
+
+    /**
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUser(): bool
+    {
+        return $this->role === 'user';
+    }
 }

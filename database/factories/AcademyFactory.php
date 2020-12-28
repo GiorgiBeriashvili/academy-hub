@@ -27,7 +27,7 @@ class AcademyFactory extends Factory
         return [
             'user_id' => User::all()->random()->id,
             'name' => $this->faker->company,
-            'logo' => $this->faker->imageUrl(128, 128),
+            'logo' => "https://picsum.photos/400",
             'country' => array_rand(Constants::countries),
             'state' => $this->faker->state,
             'city' => $this->faker->city,

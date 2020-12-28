@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Academy;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect()->route('academies');
+})->name('/');
+
+Route::get('/academies', function () {
+    return view('components.academies', ['academies' => Academy::query()->paginate(3)]);
+})->name('academies');
+
+Route::get('/academies/{academy}', function (Academy $academy) {
+    return $academy;
+})->name('academies.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -14,6 +14,6 @@ class AcademySeeder extends Seeder
      */
     public function run()
     {
-        AcademyFactory::times(10)->create();
+        AcademyFactory::times(50)->create();
     }
 }

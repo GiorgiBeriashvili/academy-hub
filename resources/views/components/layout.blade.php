@@ -36,12 +36,13 @@
 
         <!-- Modals go here -->
         <!-- Reference: https://www.gethalfmoon.com/docs/modal -->
+        <x-image-modal/>
 
         <!-- Page wrapper start -->
         <div class="page-wrapper with-navbar @auth with-sidebar @endauth with-navbar-fixed-bottom">
             <!-- Sticky alerts (toasts), empty container -->
             <!-- Reference: https://www.gethalfmoon.com/docs/sticky-alerts-toasts -->
-            <div class="sticky-alerts"></div>
+            <x-sticky-alert/>
 
             <!-- Header start -->
             <x-header/>

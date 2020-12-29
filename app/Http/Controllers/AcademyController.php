@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Academy;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class AcademyController extends Controller
@@ -10,11 +13,11 @@ class AcademyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function index()
+    public function index(): Application|Factory|View
     {
-        //
+        return view('components.academies', ['academies' => Academy::query()->paginate(3)]);
     }
 
     /**
@@ -46,7 +49,7 @@ class AcademyController extends Controller
      */
     public function show(Academy $academy)
     {
-        //
+        return $academy;
     }
 
     /**

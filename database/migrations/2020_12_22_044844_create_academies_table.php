@@ -19,6 +19,7 @@ class CreateAcademiesTable extends Migration
             $table->foreignId('user_id');
             $table->string('name');
             $table->string('logo')->nullable();
+            $table->string('website')->nullable();
             $table->enum('country', Constants::countries);
             $table->string('state')->nullable();
             $table->string('city')->nullable();

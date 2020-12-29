@@ -1,9 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Api\Controller;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\StorePasswordRequest;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -14,9 +19,10 @@ class NewPasswordController extends Controller
     /**
      * Display the password reset view.
      *
-     * @return \Illuminate\View\View
+     * @param Request $request
+     * @return Application|Factory|View
      */
-    public function create(Request $request)
+    public function create(Request $request): Factory|View|Application
     {
         return view('auth.reset-password', ['request' => $request]);
     }
@@ -24,24 +30,17 @@ class NewPasswordController extends Controller
     /**
      * Handle an incoming new password request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * @param StorePasswordRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StorePasswordRequest $request): RedirectResponse
     {
-        $request->validate([
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|string|confirmed|min:8',
-        ]);
-
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
+
             function ($user) use ($request) {
                 $user->forceFill([
                     'password' => Hash::make($request->password),

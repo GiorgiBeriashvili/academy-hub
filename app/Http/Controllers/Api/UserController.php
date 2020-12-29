@@ -41,7 +41,7 @@ class UserController extends Controller
     #[ArrayShape(['message' => "string"])] public function store(StoreUserRequest $request): array
     {
         User::query()->create([
-            'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -70,7 +70,7 @@ class UserController extends Controller
     #[ArrayShape(['message' => "string"])] public function update(UpdateUserRequest $request, User $user): array
     {
         $user->update([
-            'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

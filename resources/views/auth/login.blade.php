@@ -1,56 +1,68 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+<x-layout>
+    <div class="content-wrapper d-flex justify-content-center align-items-center">
+        <section class="w-400">
+            <form action="{{ route('login') }}" method="POST" class="card shadow">
+                @csrf
+                <h1 class="content-title" style="text-align: center;">Login</h1>
+                <div class="form-group @if($errors->has('email')) is-invalid @endif">
+                    <label for="email" class="required">Email</label>
+                    @if($errors->has('email'))
+                        <div class="invalid-feedback">
+                            <ul>
+                                @foreach ($errors->get('email') as $message)
+                                    <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text pl-10 pr-10" data-toggle="tooltip" data-title="Must be formatted as an email address."><i class="fa fa-envelope-o"></i></span>
+                        </div>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required="required" value="{{ old('email') }}" autocomplete="email" autofocus>
+                    </div>
+                </div>
+                <div class="form-group @if($errors->has('password')) is-invalid @endif">
+                    <label for="password" class="required">Password</label>
+                    @if($errors->has('password'))
+                        <div class="invalid-feedback">
+                            <ul>
+                                @foreach ($errors->get('password') as $message)
+                                    <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="padding-left: 15px; padding-right: 15px;" data-toggle="tooltip" data-title="Must be at least 8 characters long."><i class="fa fa-lock"></i></span>
+                        </div>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="required" autocomplete="current-password">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="password-toggle" style="cursor: pointer;"
+                                  onclick="toggleVisibility(`#password`, '#password-toggle')"
+                                  data-toggle="tooltip" data-title="Show Text"><i class="fa fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="remember-me" autocomplete="on">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary btn-block" type="submit" value="Login">
+                </div>
+                @if (\Illuminate\Support\Facades\Route::has('password.request'))
+                    <div style="text-align: center;">
+                        <a href="{{ route('password.request') }}" class="hyperlink-underline">Forgot your password?</a>
+                    </div>
                 @endif
+            </form>
+        </section>
+    </div>
 
-                <x-button class="ml-3">
-                    {{ __('Login') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    <x-password-visibility-toggler/>
+</x-layout>

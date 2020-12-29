@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\ArrayShape;
 /**
  * Class UpdateUserRequest
  * @package App\Http\Requests\Auth
- * @property-read string name
+ * @property-read string username
  * @property-read string email
  * @property-read string password
  * @property-read int id
@@ -31,12 +31,13 @@ class UpdateUserRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['name' => "string", 'email' => "string", 'password' => "string"])] public function rules(): array
+    #[ArrayShape(['username' => "string", 'email' => "string", 'password' => "string"])] public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'username' => 'required|alpha_dash|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($this),],
             'password' => 'required|string|confirmed|min:8',
+            'password_confirmation' => 'required|string|min:8',
         ];
     }
 }

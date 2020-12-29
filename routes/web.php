@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Academy;
+use App\Http\Controllers\AcademyController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,20 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('academies');
-})->name('/');
+Route::get('/', IndexController::class)->name('/');
 
-Route::get('/academies', function () {
-    return view('components.academies', ['academies' => Academy::query()->paginate(3)]);
-})->name('academies');
-
-Route::get('/academies/{academy}', function (Academy $academy) {
-    return $academy;
-})->name('academies.show');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth:sanctum'])->name('dashboard');
+Route::resource('academies', AcademyController::class);
 
 require __DIR__.'/auth.php';

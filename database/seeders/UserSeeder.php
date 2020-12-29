@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::query()->firstOrCreate([
-            'name' => 'Admin',
+            'username' => 'Admin',
             'role' => 'admin',
             'email' => 'admin@academy.hub',
             'email_verified_at' => now(),
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::query()->firstOrCreate([
-            'name' => 'User',
+            'username' => 'User',
             'role' => 'user',
             'email' => 'user@academy.hub',
             'email_verified_at' => now(),

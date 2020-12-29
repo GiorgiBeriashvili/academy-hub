@@ -6,13 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
 /**
- * Class StoreUserRequest
- * @package App\Http\Requests\Auth
- * @property-read string username
- * @property-read string email
  * @property-read string password
  */
-class StoreUserRequest extends FormRequest
+class StorePasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,13 +25,12 @@ class StoreUserRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape(['username' => "string", 'email' => "string", 'password' => "string"])] public function rules(): array
+    #[ArrayShape(['token' => "string", 'email' => "string", 'password' => "string"])] public function rules(): array
     {
         return [
-            'username' => 'required|alpha_dash|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'token' => 'required',
+            'email' => 'required|email',
             'password' => 'required|string|confirmed|min:8',
-            'password_confirmation' => 'required|string|min:8',
         ];
     }
 }

@@ -210,6 +210,8 @@ class Constants extends Facade
         'user',
     ];
 
+    public const searcher = 'https://www.openstreetmap.org/search?query=';
+
     protected static function getFacadeAccessor(): string
     {
         return Constants::class;

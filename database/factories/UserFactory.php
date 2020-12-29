@@ -21,10 +21,10 @@ class UserFactory extends Factory
      *
      * @return array
      */
-    #[ArrayShape(['name' => "string", 'role' => "string", 'email' => "string", 'email_verified_at' => "\Illuminate\Support\Carbon", 'password' => "string", 'remember_token' => "string"])] public function definition(): array
+    #[ArrayShape(['username' => "string", 'role' => "string", 'email' => "string", 'email_verified_at' => "\Illuminate\Support\Carbon", 'password' => "string", 'remember_token' => "string"])] public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
+            'username' => $this->faker->userName,
             'role' => 'user',
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),

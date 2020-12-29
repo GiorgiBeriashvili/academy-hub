@@ -20,7 +20,7 @@
         </ul>
     </div>
 
-    <form class="form-inline d-none d-md-flex ml-auto" action="..." method="...">
+    <div class="form-inline d-none d-md-flex ml-auto">
         <button class="btn btn-square" type="button" onclick="window.open('https://github.com/GiorgiBeriashvili/academy-hub', '_blank')">
             <i class="fa fa-github" aria-hidden="true"></i>
         </button>
@@ -35,13 +35,32 @@
             <i class="fa fa-moon-o" aria-hidden="true"></i>
             <span class="sr-only">Toggle dark mode</span>
         </button>
-        <button class="btn btn-primary" type="submit">
-            Sign in
-        </button>
-        <button class="btn btn-primary" type="submit">
-            Sign up
-        </button>
-    </form>
+
+        @guest
+            <a href="{{ route('login') }}" class="m-5">
+                <button class="btn btn-primary" type="button">
+                    Login
+                </button>
+            </a>
+
+            <a href="{{ route('register') }}" class="m-5">
+                <button class="btn btn-primary" type="button">
+                    Register
+                </button>
+            </a>
+        @endguest
+
+        @auth
+            <div>
+                <form action="{{ route('logout') }}" method="post" class="m-5">
+                    @csrf
+                    <button class="btn btn-primary" type="submit">
+                        Logout
+                    </button>
+                </form>
+            </div>
+        @endauth
+    </div>
     <div class="navbar-content d-md-none ml-auto">
         <div class="dropdown with-arrow">
             <button class="btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn-1">
@@ -55,15 +74,32 @@
                 <x-navigation-item type="dropdown-item" route="/license" name="License (MIT)" />
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-content">
-                    <form action="..." method="...">
-                        <button class="btn btn-primary btn-block" type="submit">
-                            Sign in
-                        </button>
+                    @guest
+                        <a href="{{ route('login') }}">
+                            <button class="btn btn-primary btn-block" type="button">
+                                Login
+                            </button>
+                        </a>
+
                         <div style="padding: 4px 0;"></div>
-                        <button class="btn btn-primary btn-block" type="submit">
-                            Sign up
-                        </button>
-                    </form>
+
+                        <a href="{{ route('register') }}">
+                            <button class="btn btn-primary btn-block" type="button">
+                                Register
+                            </button>
+                        </a>
+                    @endguest
+
+                    @auth
+                        <div>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button class="btn btn-primary btn-block" type="submit">
+                                    Logout
+                                </button>
+                            </form>
+                        </div>
+                    @endauth
                 </div>
             </div>
         </div>

@@ -1,9 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Api\Controller;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\StorePasswordRequest;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,10 +17,10 @@ class ConfirmablePasswordController extends Controller
     /**
      * Show the confirm password view.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\View\View
+     * @param Request $request
+     * @return Application|Factory|View
      */
-    public function show(Request $request)
+    public function show(Request $request): Factory|View|Application
     {
         return view('auth.confirm-password');
     }
@@ -23,10 +28,10 @@ class ConfirmablePasswordController extends Controller
     /**
      * Confirm the user's password.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StorePasswordRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StorePasswordRequest $request): RedirectResponse
     {
         if (! Auth::validate([
             'email' => $request->user()->email,

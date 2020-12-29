@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Repositories\Constants;
 use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * Class Academy
@@ -64,5 +66,13 @@ class Academy extends Model
     public function photographs(): HasMany
     {
         return $this->hasMany(Photograph::class);
+    }
+
+    /**
+     * The location built from country, state, city.
+     */
+    #[Pure] public function getLocation(): string
+    {
+        return implode(', ', [$this->country, $this->state, $this->city]);
     }
 }

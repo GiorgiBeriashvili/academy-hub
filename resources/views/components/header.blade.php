@@ -8,7 +8,7 @@
             </button>
         @endauth
 
-        <a href="{{ route('/') }}" class="navbar-brand">
+        <a href="{{ route(\App\Providers\RouteServiceProvider::HOME) }}" class="navbar-brand">
             <x-logo size="32" /> <span style="font-size: 20px; padding-top: 8px; padding-left: 8px;">Academy Hub</span>
         </a>
 
@@ -16,11 +16,24 @@
             <x-navigation-item type="nav-item" route="/statistics" name="Statistics" />
             <x-navigation-item type="nav-item" route="/about" name="About" />
             <x-navigation-item type="nav-item" route="/contact" name="Contact Us" />
-            <x-navigation-item type="nav-item" route="/license" name="License (MIT)" />
+            <x-navigation-item type="nav-item" route="{{ route('license') }}" name="License (MIT)" />
         </ul>
     </div>
 
     <div class="form-inline d-none d-md-flex ml-auto">
+        <form class="form-inline m-auto mr-10" action="..." method="...">
+            <label class="" for="search-academy"><i class="fa fa-filter"></i></label>
+            <div class="input-group">
+                <input id="search-academy" name="search-academy" type="text" class="form-control" placeholder="Search academy" required="required">
+                <div class="input-group-append">
+                    <button class="btn" type="submit">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <span class="sr-only">Search academy</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
         <button class="btn btn-square" type="button" onclick="window.open('https://github.com/GiorgiBeriashvili/academy-hub', '_blank')">
             <i class="fa fa-github" aria-hidden="true"></i>
         </button>
@@ -62,6 +75,25 @@
         @endauth
     </div>
     <div class="navbar-content d-md-none ml-auto">
+        <div class="dropdown with-arrow mr-10">
+            <button class="btn" data-toggle="dropdown" type="button" id="..." aria-haspopup="true" aria-expanded="false">
+                Search <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="...">
+                <form class="form-inline m-auto w-200" action="..." method="...">
+                    <label class="ml-5" for="search-academy"><i class="fa fa-filter"></i></label>
+                    <div class="input-group">
+                        <input id="search-academy" name="search-academy" type="text" class="form-control" placeholder="Search academy" required="required">
+                        <div class="input-group-append">
+                            <button class="btn" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <span class="sr-only">Search academy</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="dropdown with-arrow">
             <button class="btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn-1">
                 Menu
@@ -71,7 +103,7 @@
                 <x-navigation-item type="dropdown-item" route="/statistics" name="Statistics" />
                 <x-navigation-item type="dropdown-item" route="/about" name="About" />
                 <x-navigation-item type="dropdown-item" route="/contact" name="Contact Us" />
-                <x-navigation-item type="dropdown-item" route="/license" name="License (MIT)" />
+                <x-navigation-item type="dropdown-item" route="{{ route('license') }}" name="License (MIT)" />
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-content">
                     @guest

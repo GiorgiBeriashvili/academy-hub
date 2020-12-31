@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Academy;
+use App\Repositories\Constants;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -17,7 +18,7 @@ class AcademyController extends Controller
      */
     public function index(): Application|Factory|View
     {
-        return view('components.academies', ['academies' => Academy::query()->paginate(3)]);
+        return view('components.academies', ['academies' => Academy::query()->paginate(Constants::academyPerPage)]);
     }
 
     /**

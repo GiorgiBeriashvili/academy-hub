@@ -20,3 +20,4 @@ Route::get('/', IndexController::class)->name('/');
 Route::resource('academies', AcademyController::class);
 
 require __DIR__.'/auth.php';
+require __DIR__.'/static.php';

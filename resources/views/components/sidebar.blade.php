@@ -1,68 +1,59 @@
 <div class="sidebar">
     <!-- Reference: https://www.gethalfmoon.com/docs/sidebar -->
     <div class="sidebar-menu">
-        <div class="sidebar-content">
-            <label>
-                <input id="search-bar" type="text" class="form-control" placeholder="Search" />
-            </label>
-            <div class="mt-10 font-size-12">
-                Press <kbd>Shift</kbd> + <kbd>f</kbd> to focus
-            </div>
+        <div class="sidebar-content text-center">
+            <img class="img-fluid rounded-circle w-100 h-100" style="object-fit: cover; cursor: pointer;"
+                 src="{{ asset('placeholder-image.png') }}" alt="User's profile picture"
+                 onclick="enhanceImage('{{ \Illuminate\Support\Facades\Auth::id() }}', '{{ \Illuminate\Support\Facades\Auth::user()->avatar ?? asset('placeholder-image.png') }}');" />
+            <h4>{{ \Illuminate\Support\Facades\Auth::user()->username }}</h4>
+            <button class="btn btn-block" type="button">Edit Profile</button>
         </div>
-        {/* <a href="/curios" class="hyperlink"> */}
-        <h5 class="sidebar-title">Curios</h5>
-        {/* </a> */}
+        <h5 class="sidebar-title">Actions</h5>
         <div class="sidebar-divider"></div>
-        <Link to="/curios/chip-8-emulator" class="sidebar-link sidebar-link-with-icon active">
-        <span class="sidebar-icon">
-                    <i class="fa fa-microchip" aria-hidden="true"></i>
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon">
+                    <i class="fa fa-user" aria-hidden="true"></i>
                 </span>
-        CHIP-8 Emulator
-        </Link>
-        <Link to="/curios/game-of-life" class="sidebar-link sidebar-link-with-icon">
-        <span class="sidebar-icon">
-                    <i class="fa fa-gamepad" aria-hidden="true"></i>
+            View Profile
+        </a>
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
                 </span>
-        Game of Life
-        </Link>
-        <Link to="/curios/gif-maker" class="sidebar-link sidebar-link-with-icon">
-        <span class="sidebar-icon">
-                    <i class="fa fa-file-image-o" aria-hidden="true"></i>
+            Create Academy
+        </a>
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon">
+                    <i class="fa fa-university" aria-hidden="true"></i>
                 </span>
-        GIF Maker
-        </Link>
-        <Link to="/curios/periodic-table" class="sidebar-link sidebar-link-with-icon">
-        <span class="sidebar-icon">
-                    <i class="fa fa-flask" aria-hidden="true"></i>
+            Show Academies
+        </a>
+        <a href="#" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon">
+                    <i class="fa fa-gear" aria-hidden="true"></i>
                 </span>
-        Periodic Table
-        </Link>
+            Settings
+        </a>
         <br />
-        <h5 class="sidebar-title">Components</h5>
+        <h5 class="sidebar-title">Documentation</h5>
         <div class="sidebar-divider"></div>
         <a href="#" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
-                    <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                    <i class="fa fa-rocket" aria-hidden="true"></i>
                 </span>
-            File explorer
+            Getting Started
         </a>
         <a href="#" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
-                    <i class="fa fa-table" aria-hidden="true"></i>
+                    <i class="fa fa-book" aria-hidden="true"></i>
                 </span>
-            Spreadsheet
+            Guidelines
         </a>
         <a href="#" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
-                    <i class="fa fa-map-o" aria-hidden="true"></i>
+                    <i class="fa fa-code" aria-hidden="true"></i>
                 </span>
-            Map
-        </a>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
-                <span class="sidebar-icon">
-                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                </span>
-            Messenger
+            API
         </a>
     </div>
 </div>

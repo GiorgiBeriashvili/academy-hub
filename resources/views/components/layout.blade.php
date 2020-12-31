@@ -19,7 +19,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
 
-    <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-mode-onload="true">
+    <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars css-scrollbar-transparent-track" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true" data-set-preferred-mode-onload="true">
         {{--        @if (Route::has('login'))--}}
         {{--            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">--}}
         {{--                @auth--}}
@@ -39,7 +39,8 @@
         <x-image-modal/>
 
         <!-- Page wrapper start -->
-        <div class="page-wrapper with-navbar @auth with-sidebar @endauth with-navbar-fixed-bottom">
+{{--        data-sidebar-hidden="hidden"--}}
+        <div class="page-wrapper with-navbar @auth with-sidebar @endauth with-navbar-fixed-bottom" data-sidebar-hidden="hidden">
             <!-- Sticky alerts (toasts), empty container -->
             <!-- Reference: https://www.gethalfmoon.com/docs/sticky-alerts-toasts -->
             <x-sticky-alert/>

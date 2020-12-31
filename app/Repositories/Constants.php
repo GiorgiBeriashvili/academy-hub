@@ -212,6 +212,8 @@ class Constants extends Facade
 
     public const searcher = 'https://www.openstreetmap.org/search?query=';
 
+    public const academyPerPage = 6;
+
     protected static function getFacadeAccessor(): string
     {
         return Constants::class;

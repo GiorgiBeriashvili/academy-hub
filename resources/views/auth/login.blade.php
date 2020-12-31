@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input class="btn btn-primary btn-block" type="submit" value="Login">
+                    <input class="btn btn-primary btn-block" type="submit" value="Submit">
                 </div>
                 @if (\Illuminate\Support\Facades\Route::has('password.request'))
                     <div style="text-align: center;">

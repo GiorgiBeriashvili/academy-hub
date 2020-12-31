@@ -4,37 +4,16 @@
     <list default="true" id="a1b6005f-c6f8-411b-bceb-9273874a4b26" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AcademyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AcademyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthenticatedSessionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthenticatedSessionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmablePasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmablePasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmailVerificationNotificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmailVerificationNotificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmailVerificationPromptController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmailVerificationPromptController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/NewPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/NewPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordResetLinkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordResetLinkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisteredUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisteredUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerifyEmailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerifyEmailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/StoreUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/StoreUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/UpdateUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Auth/UpdateUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Academy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Academy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/Constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Constants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AcademyFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AcademyFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_22_044844_create_academies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_22_044844_create_academies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/academies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/academies.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/pagination.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/404.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/RegistrationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/RegistrationTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +163,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -218,7 +197,9 @@
       <workItem from="1609097813031" duration="32251000" />
       <workItem from="1609134765394" duration="14646000" />
       <workItem from="1609196810294" duration="28020000" />
-      <workItem from="1609227731059" duration="19477000" />
+      <workItem from="1609227731059" duration="20070000" />
+      <workItem from="1609298001848" duration="23620000" />
+      <workItem from="1609420991054" duration="118000" />
     </task>
     <servers />
   </component>
@@ -238,7 +219,12 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
+    <expand>
+      <path>
+        <item name="academy-hub" type="b2602c69:ProjectViewProjectNode" />
+        <item name="academy-hub" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
     <select />
   </component>
 </project>

@@ -17,7 +17,7 @@
                     @endif
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text pl-10 pr-10" data-toggle="tooltip" data-title="Only letters, dashes and underscores allowed."><i class="fa fa-user-o"></i></span>
+                            <span class="input-group-text pl-10 pr-10" data-toggle="tooltip" data-title="Only letters, numbers, dashes and underscores allowed."><i class="fa fa-user-o"></i></span>
                         </div>
                         <input type="text" class="form-control" id="username" name="username" placeholder="Username" required="required" value="{{ old('username') }}" autofocus autocomplete="username">
                     </div>
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <input class="btn btn-primary btn-block" type="submit" value="Register">
+                <input class="btn btn-primary btn-block" type="submit" value="Submit">
             </form>
         </section>
     </div>

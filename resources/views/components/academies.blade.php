@@ -7,8 +7,8 @@
             @foreach($academies as $academy)
                 <div class="w-450">
                     <div class="card p-0 h-auto shadow">
-                        <img src="{{ $academy->logo }}" class="img-fluid rounded-top w-full h-200" alt="Academy's logo"
-                             onclick="enhanceImage('{{ $academy->id }}', '{{ $academy->logo }}');" style="cursor: pointer;">
+                        <img src="{{ $academy->logo ?? asset('placeholder-image.png') }}" class="img-fluid rounded-top w-full h-200" alt="Academy's logo"
+                             onclick="enhanceImage('{{ $academy->id }}', '{{ $academy->logo ?? asset('placeholder-image.png') }}');" style="cursor: pointer;">
                         <!-- Nested content container inside card -->
                         <div class="content h-100">
                             <div>

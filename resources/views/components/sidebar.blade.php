@@ -16,7 +16,7 @@
                 </span>
             View Profile
         </a>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="{{route('academies.create')}}" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </span>

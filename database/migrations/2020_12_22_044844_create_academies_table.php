@@ -23,7 +23,7 @@ class CreateAcademiesTable extends Migration
             $table->enum('country', Constants::countries);
             $table->string('state')->nullable();
             $table->string('city')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('motto')->nullable();
             $table->date('date_of_establishment');
             $table->boolean('verified')->default(false);

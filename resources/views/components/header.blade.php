@@ -15,7 +15,7 @@
         <ul class="navbar-nav d-none d-md-flex" style="padding-top: 4px;">
             <x-navigation-item type="nav-item" route="/statistics" name="Statistics" />
             <x-navigation-item type="nav-item" route="/about" name="About" />
-            <x-navigation-item type="nav-item" route="/contact" name="Contact Us" />
+            <x-navigation-item type="nav-item" route="mailto:support@academy.hub" name="Contact Us" />
             <x-navigation-item type="nav-item" route="{{ route('license') }}" name="License (MIT)" />
         </ul>
     </div>
@@ -102,7 +102,7 @@
             <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1">
                 <x-navigation-item type="dropdown-item" route="/statistics" name="Statistics" />
                 <x-navigation-item type="dropdown-item" route="/about" name="About" />
-                <x-navigation-item type="dropdown-item" route="/contact" name="Contact Us" />
+                <x-navigation-item type="dropdown-item" route="mailto:support@academy.hub" name="Contact Us" />
                 <x-navigation-item type="dropdown-item" route="{{ route('license') }}" name="License (MIT)" />
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-content">

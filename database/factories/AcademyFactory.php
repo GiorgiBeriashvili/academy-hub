@@ -32,7 +32,7 @@ class AcademyFactory extends Factory
             'country' => array_rand(Constants::countries, num: 1),
             'state' => $this->faker->state,
             'city' => $this->faker->city,
-            'description' => $this->faker->text,
+            'description' => $this->faker->paragraphs($this->faker->randomNumber(nbDigits: 3), true),
             'motto' => $this->faker->sentence,
             'date_of_establishment' => $this->faker->date(),
             'verified' => $this->faker->boolean,

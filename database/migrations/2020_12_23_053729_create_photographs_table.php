@@ -17,7 +17,6 @@ class CreatePhotographsTable extends Migration
             $table->id();
             $table->foreignId('academy_id')->constrained()->cascadeOnDelete();
             $table->string('photograph');
-            $table->dateTime('datetime_taken');
             $table->timestamps();
         });
     }

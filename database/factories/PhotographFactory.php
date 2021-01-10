@@ -21,12 +21,11 @@ class PhotographFactory extends Factory
      *
      * @return array
      */
-    #[ArrayShape(['academy_id' => "\Illuminate\Support\HigherOrderCollectionProxy|mixed", 'photograph' => "string", 'datetime_taken' => "\DateTime"])] public function definition(): array
+    #[ArrayShape(['academy_id' => "\Illuminate\Support\HigherOrderCollectionProxy|mixed", 'photograph' => "string"])] public function definition(): array
     {
         return [
             'academy_id' => Academy::all()->random()->id,
             'photograph' => $this->faker->imageUrl(),
-            'datetime_taken' => $this->faker->dateTime,
         ];
     }
 }

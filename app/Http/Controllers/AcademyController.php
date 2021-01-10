@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Academy\StoreAcademyRequest;
 use App\Models\Academy;
+use App\Models\Photograph;
 use App\Models\Tag;
 use App\Repositories\Constants;
+use App\Traits\ImageUpload;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -16,6 +18,18 @@ use Illuminate\Support\Facades\Auth;
 
 class AcademyController extends Controller
 {
+    use ImageUpload;
+
+    /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Academy::class, 'academy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +49,7 @@ class AcademyController extends Controller
      */
     public function create(): Factory|View|Application
     {
-        return view('components.create-academy');
+        return view('components.create-academy', ['countries' => Constants::countries]);
     }
 
     /**
@@ -46,12 +60,9 @@ class AcademyController extends Controller
      */
     public function store(StoreAcademyRequest $request): RedirectResponse
     {
-        Tag::query()->create(['name' => $request->tags]);
-
         $academy = new Academy([
             'user_id' => Auth::id(),
             'name' => $request->name,
-            'logo' => $request->logo,
             'website' => $request->website,
             'country' => $request->country,
             'state' => $request->state,
@@ -59,23 +70,49 @@ class AcademyController extends Controller
             'description' => $request->description,
             'motto' => $request->motto,
             'date_of_establishment' => $request->date_of_establishment,
-            'verified' => $request->verified,
+            'verified' => false,
         ]);
+
+        if ($request->hasFile('logo')) {
+            $filePath = $this->ImageUpload($request->file('logo'));
+
+            $academy->logo = $filePath;
+        }
 
         $academy->save();
 
-        $academy->tags()->attach($request->tags);
+        if ($request->tags !== null) {
+            $tagNames = explode(' ', $request->tags);
+
+            $tags = [];
+
+            foreach ($tagNames as $tagName) {
+                $tag = Tag::query()->create(['name' => $tagName]);
+
+                array_push($tags, $tag);
+            }
+
+            $tags = collect($tags);
+
+            $academy->tags()->attach($tags->pluck('id'));
+        }
+
+        if ($request->hasFile('photographs')) {
+            foreach($request->file('photographs') as $photograph){
+                $filePath = $this->ImageUpload($photograph);
+
+                Photograph::query()->create([
+                    'academy_id' => $academy->id,
+                    'photograph' => $filePath,
+                ]);
+            }
+        }
 
         return redirect()->route('academies.show', $academy);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Academy $academy
-     * @return Application|Factory|View|Response
-     */
-    public function show(Academy $academy): Factory|View|Response|Application
+
+    public function show(Academy $academy): Factory|View|Application
     {
         return view('components.show-academy', ['academy' => $academy]);
     }

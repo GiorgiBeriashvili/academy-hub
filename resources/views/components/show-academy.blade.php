@@ -2,7 +2,7 @@
     <div class="content-wrapper">
         <div class="m-auto">
             <div class="card p-0 h-full shadow">
-                <img src="{{ $academy->logo ?? asset('placeholder-image.png') }}" class="img-fluid rounded-top w-600 h-350 m-auto p-20 d-block" alt="Academy's logo"
+                <img src="{{ asset($academy->logo) ?? asset('placeholder-image.png') }}" class="img-fluid rounded-top w-600 h-350 m-auto p-20 d-block" alt="Academy's logo"
                      onclick="enhanceImage('{{ $academy->id }}', '{{ $academy->logo ?? asset('placeholder-image.png') }}');" style="cursor: pointer;">
                 <!-- Nested content container inside card -->
                 <div class="content h-full">
@@ -36,6 +36,34 @@
                     <span class="text-muted font-size-20 font-weight-lighter">&quot;<span class="font-italic">{{ $academy->motto }}</span>&quot;</span>
                     <p class="font-weight-lighter">{{ $academy->description }}</p>
                 </div>
+                @if(count($academy->photographs) > 0)
+                    <div class="content">
+                        <h1>Gallery:</h1>
+                    </div>
+                    <div class="container-fluid">
+                        @for($index = 0; $index < count($academy->photographs); $index += 2)
+                            @if($index < count($academy->photographs) - 1)
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img src="{{ asset($academy->photographs[$index]->photograph) ?? asset('placeholder-image.png') }}" class="img-fluid rounded-top w-500 h-500 m-auto p-20 d-block" alt="Academy's logo"
+                                             onclick="enhanceImage('{{ $academy->id }}', '{{ $academy->logo ?? asset('placeholder-image.png') }}');" style="cursor: pointer;">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <img src="{{ asset($academy->photographs[$index + 1]->photograph) ?? asset('placeholder-image.png') }}" class="img-fluid rounded-top w-500 h-500 m-auto p-20 d-block" alt="Academy's logo"
+                                             onclick="enhanceImage('{{ $academy->id }}', '{{ $academy->logo ?? asset('placeholder-image.png') }}');" style="cursor: pointer;">
+                                    </div>
+                                </div>
+                            @else
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img src="{{ asset($academy->photographs[$index]->photograph) ?? asset('placeholder-image.png') }}" class="img-fluid rounded-top w-600 h-350 m-auto p-20 d-block" alt="Academy's logo"
+                                             onclick="enhanceImage('{{ $academy->id }}', '{{ $academy->logo ?? asset('placeholder-image.png') }}');" style="cursor: pointer;">
+                                    </div>
+                                </div>
+                            @endif
+                        @endfor
+                    </div>
+                @endif
             </div>
         </div>
     </div>

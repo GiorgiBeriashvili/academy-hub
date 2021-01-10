@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 /**
  * Class AcademyTag
  * @package App\Models
- * @property int id
  * @property int academy_id
  * @property int tag_id
  * @property datetime created_at
@@ -18,4 +17,14 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class AcademyTag extends Pivot
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'academy_id',
+        'tag_id',
+    ];
 }

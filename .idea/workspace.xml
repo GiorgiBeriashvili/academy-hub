@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1b6005f-c6f8-411b-bceb-9273874a4b26" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AcademyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AcademyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AcademyFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AcademyFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_22_044844_create_academies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_22_044844_create_academies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/license.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/license.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/static.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Academy/StoreAcademyRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Academy/StoreAcademyRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Academy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Academy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AcademyTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AcademyTag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Photograph.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Photograph.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/PhotographFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PhotographFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_23_035927_create_academy_tag_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_23_035927_create_academy_tag_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_23_053729_create_photographs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_23_053729_create_photographs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/create-academy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/create-academy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/show-academy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/show-academy.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +204,11 @@
       <workItem from="1609420991054" duration="118000" />
       <workItem from="1609439818479" duration="85000" />
       <workItem from="1610014199606" duration="8616000" />
-      <workItem from="1610030239575" duration="3807000" />
+      <workItem from="1610030239575" duration="11011000" />
+      <workItem from="1610105879956" duration="5465000" />
+      <workItem from="1610128610550" duration="9001000" />
+      <workItem from="1610292698189" duration="51000" />
+      <workItem from="1610296139819" duration="14091000" />
     </task>
     <servers />
   </component>

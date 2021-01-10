@@ -13,13 +13,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int id
  * @property int academy_id
  * @property string photograph
- * @property datetime datetime_taken
  * @property datetime created_at
  * @property datetime updated_at
  */
 class Photograph extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at',
+    ];
 
     /**
      * Get the academy that owns the photograph.

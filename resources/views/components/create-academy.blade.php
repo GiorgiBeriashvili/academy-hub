@@ -1,7 +1,7 @@
 <x-layout>
     <div class="content-wrapper">
         <section class="content">
-            <form action="{{ route('login') }}" method="POST" class="card shadow">
+            <form action="{{ route('academies.store') }}" method="POST" class="card shadow" enctype="multipart/form-data">
                 @csrf
                 <h1 class="content-title" style="text-align: center;">Create Academy</h1>
                 <div class="form-group @if($errors->has('name')) is-invalid @endif">
@@ -20,7 +20,6 @@
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('logo')) is-invalid @endif">
-                    <label for="logo" class="required">Logo</label>
                     @if($errors->has('logo'))
                         <div class="invalid-feedback">
                             <ul>
@@ -30,12 +29,13 @@
                             </ul>
                         </div>
                     @endif
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="logo" name="logo" placeholder="Logo" required="required" value="{{ old('logo') }}" autofocus>
+                    <div class="custom-file">
+                        <label for="logo">Choose Logo</label>
+                        <input type="file" accept=".jpg,.png,.jpeg,.gif,.svg" class="form-control" id="logo" name="logo" value="{{ old('logo') }}">
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('website')) is-invalid @endif">
-                    <label for="website" class="required">Website</label>
+                    <label for="website">Website</label>
                     @if($errors->has('website'))
                         <div class="invalid-feedback">
                             <ul>
@@ -46,7 +46,7 @@
                         </div>
                     @endif
                     <div class="input-group">
-                        <input type="text" class="form-control" id="website" name="website" placeholder="Website" required="required" value="{{ old('website') }}" autofocus>
+                        <input type="text" class="form-control" id="website" name="website" placeholder="Website" value="{{ old('website') }}" autofocus>
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('country')) is-invalid @endif">
@@ -61,11 +61,15 @@
                         </div>
                     @endif
                     <div class="input-group">
-                        <input type="text" class="form-control" id="country" name="country" placeholder="Country" required="required" value="{{ old('country') }}" autofocus>
+                        <select class="form-control" id="country" name="country" required="required">
+                            @foreach($countries as $country)
+                                <option value="{{ $country }}">{{ $country }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('state')) is-invalid @endif">
-                    <label for="state" class="required">State</label>
+                    <label for="state">State</label>
                     @if($errors->has('state'))
                         <div class="invalid-feedback">
                             <ul>
@@ -76,11 +80,11 @@
                         </div>
                     @endif
                     <div class="input-group">
-                        <input type="text" class="form-control" id="state" name="state" placeholder="State" required="required" value="{{ old('state') }}" autofocus>
+                        <input type="text" class="form-control" id="state" name="state" placeholder="State" value="{{ old('state') }}" autofocus>
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('city')) is-invalid @endif">
-                    <label for="city" class="required">City</label>
+                    <label for="city">City</label>
                     @if($errors->has('city'))
                         <div class="invalid-feedback">
                             <ul>
@@ -91,11 +95,11 @@
                         </div>
                     @endif
                     <div class="input-group">
-                        <input type="text" class="form-control" id="city" name="city" placeholder="City" required="required" value="{{ old('city') }}" autofocus>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{ old('city') }}" autofocus>
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('description')) is-invalid @endif">
-                    <label for="description" class="required">Description</label>
+                    <label for="description">Description</label>
                     @if($errors->has('description'))
                         <div class="invalid-feedback">
                             <ul>
@@ -106,11 +110,11 @@
                         </div>
                     @endif
                     <div class="input-group">
-                        <input type="text" class="form-control" id="description" name="description" placeholder="Description" required="required" value="{{ old('description') }}" autofocus>
+                        <textarea class="form-control" id="description" name="description" placeholder="Description" value="{{ old('description') }}" autofocus></textarea>
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('motto')) is-invalid @endif">
-                    <label for="motto" class="required">Motto</label>
+                    <label for="motto">Motto</label>
                     @if($errors->has('motto'))
                         <div class="invalid-feedback">
                             <ul>
@@ -121,7 +125,7 @@
                         </div>
                     @endif
                     <div class="input-group">
-                        <input type="text" class="form-control" id="motto" name="motto" placeholder="Motto" required="required" value="{{ old('motto') }}" autofocus>
+                        <input type="text" class="form-control" id="motto" name="motto" placeholder="Motto" value="{{ old('motto') }}" autofocus>
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('date_of_establishment')) is-invalid @endif">
@@ -136,26 +140,11 @@
                         </div>
                     @endif
                     <div class="input-group">
-                        <input type="text" class="form-control" id="date_of_establishment" name="date_of_establishment" placeholder="Date of Establishment" required="required" value="{{ old('date_of_establishment') }}" autofocus>
-                    </div>
-                </div>
-                <div class="form-group @if($errors->has('verified')) is-invalid @endif">
-                    <label for="verified" class="required">Verified</label>
-                    @if($errors->has('verified'))
-                        <div class="invalid-feedback">
-                            <ul>
-                                @foreach ($errors->get('verified') as $message)
-                                    <li>{{ $message }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="verified" name="verified" placeholder="Verified" required="required" value="{{ old('verified') }}" autofocus>
+                        <input type="date" class="form-control" id="date_of_establishment" name="date_of_establishment" placeholder="Date of Establishment" required="required" value="{{ old('date_of_establishment') }}" autofocus>
                     </div>
                 </div>
                 <div class="form-group @if($errors->has('tags')) is-invalid @endif">
-                    <label for="tags" class="required">Tags</label>
+                    <label for="tags">Tags</label>
                     @if($errors->has('tags'))
                         <div class="invalid-feedback">
                             <ul>
@@ -166,22 +155,22 @@
                         </div>
                     @endif
                     <div class="input-group">
-                        <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" required="required" value="{{ old('tags') }}" autofocus>
+                        <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" value="{{ old('tags') }}" autofocus>
                     </div>
                 </div>
-                <div class="form-group @if($errors->has('photographs')) is-invalid @endif">
-                    <label for="photographs" class="required">Photographs</label>
-                    @if($errors->has('photographs'))
+                <div class="form-group @if($errors->has('photographs[]')) is-invalid @endif">
+                    @if($errors->has('photographs[]'))
                         <div class="invalid-feedback">
                             <ul>
-                                @foreach ($errors->get('photographs') as $message)
+                                @foreach ($errors->get('photographs[]') as $message)
                                     <li>{{ $message }}</li>
                                 @endforeach
                             </ul>
                         </div>
                     @endif
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="photographs" name="photographs" placeholder="Photographs" required="required" value="{{ old('photographs') }}" autofocus>
+                    <div class="custom-file">
+                        <label for="photographs[]">Choose Photographs</label>
+                        <input type="file" multiple accept=".jpg,.png,.jpeg,.gif,.svg" class="form-control" id="photographs[]" name="photographs[]" value="{{ old('photographs') }}">
                     </div>
                 </div>
                 <div class="form-group">

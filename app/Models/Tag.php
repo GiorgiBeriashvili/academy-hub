@@ -33,6 +33,6 @@ class Tag extends Model
      */
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Academy::class)->withTimestamps()->using(AcademyTag::class);
+        return $this->belongsToMany(Academy::class)->withTimestamps();
     }
 }

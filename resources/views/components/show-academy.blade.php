@@ -1,13 +1,16 @@
 <x-layout>
     <div class="content-wrapper">
-        <div class="m-auto">
+        <div id="academy-{{ $academy->id }}" class="m-auto">
             <div class="card p-0 h-full shadow">
-                <img src="{{ asset($academy->logo) ?? asset('placeholder-image.png') }}" class="img-fluid rounded-top w-600 h-350 m-auto p-20 d-block" alt="Academy's logo"
-                     onclick="enhanceImage('{{ $academy->id }}', '{{ $academy->logo ?? asset('placeholder-image.png') }}');" style="cursor: pointer;">
-                <!-- Nested content container inside card -->
+                <div class="position-relative">
+                    <img src="{{ asset($academy->logo) ?? asset('placeholder-image.png') }}" class="img-fluid rounded-top w-600 h-350 m-auto p-20 d-block" alt="Academy's logo"
+                         onclick="enhanceImage('{{ $academy->id }}', '{{ asset($academy->logo) ?? asset('placeholder-image.png') }}');" style="cursor: pointer;">
+                    <x-academy-quick-actions :academy="$academy"/>
+                </div>
+              <!-- Nested content container inside card -->
                 <div class="content h-full">
-                    <div>
-                        @if($academy->verified) <i class="fa fa-check-circle text-success"></i> @endif
+                    <div id="card-title-{{ $academy->id }}">
+                        @if($academy->verified) <i id="verification-status-{{ $academy->id }}" class="fa fa-check-circle text-success"></i> @endif
                         <h2 class="content-title d-flex justify-content-between font-size-16 font-weight-bolder p-0 m-0 d-inline-flex">
                             {{ $academy->name }}
                         </h2>
@@ -67,4 +70,7 @@
             </div>
         </div>
     </div>
+
+    <x-destroy-academy/>
+    <x-verify-academy/>
 </x-layout>

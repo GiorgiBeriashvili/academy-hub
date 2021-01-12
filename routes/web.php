@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcademyController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', IndexController::class)->name('/');
 
 Route::resource('academies', AcademyController::class);
+Route::resource('users', UserController::class);
+
+Route::patch('academies/{academy}/verify', [AcademyController::class, 'verify'])->name('academies.verify');
+Route::get('users/{user}/academies', [UserController::class, 'showAcademies'])->name('users.academies');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/static.php';

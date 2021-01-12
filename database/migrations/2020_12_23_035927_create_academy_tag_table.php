@@ -14,8 +14,8 @@ class CreateAcademyTagTable extends Migration
     public function up()
     {
         Schema::create('academy_tag', function (Blueprint $table) {
-            $table->foreignId('academy_id')->constrained();
-            $table->foreignId('tag_id')->constrained();
+            $table->foreignId('academy_id');
+            $table->foreignId('tag_id');
             $table->unique(['academy_id', 'tag_id']);
             $table->timestamps();
         });

@@ -89,4 +89,16 @@ class AcademyPolicy
     {
         return $user->isAdmin();
     }
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     *
+     * @param User $user
+     * @param Academy $academy
+     * @return bool
+     */
+    #[Pure] public function verify(User $user, Academy $academy): bool
+    {
+        return $user->isAdmin();
+    }
 }

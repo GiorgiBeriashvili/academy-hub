@@ -1,6 +1,4 @@
 <x-layout>
-    @if((int) request('page') < 1)<script>window.location = '{{ route('academies.index', ['page' => 1]) }}';</script>@endif
-
     <div class="content-wrapper">
         <!-- Equal in-between spacing with cards -->
         <div class="d-flex justify-content-around flex-wrap">
@@ -12,7 +10,7 @@
                                  onclick="enhanceImage('{{ $academy->id }}', '{{ asset($academy->logo) ?? asset('placeholder-image.png') }}');" style="cursor: pointer;">
                             <x-academy-quick-actions :academy="$academy"/>
                         </div>
-                       <!-- Nested content container inside card -->
+                        <!-- Nested content container inside card -->
                         <div class="content h-100">
                             <div id="card-title-{{ $academy->id }}">
                                 @if($academy->verified) <i id="verification-status-{{ $academy->id }}" class="fa fa-check-circle text-success"></i> @endif
@@ -42,7 +40,7 @@
                         </div>
                         <div class="content h-50">
                             <span class="text-muted font-size-20 font-weight-lighter">&quot;<span class="font-italic">{{ $academy->motto }}</span>&quot;</span>
-{{--                            <p class="text-muted">{{ \Illuminate\Support\Str::limit($academy->description, 100, '...') }}</p>--}}
+                            {{--                            <p class="text-muted">{{ \Illuminate\Support\Str::limit($academy->description, 100, '...') }}</p>--}}
                         </div>
                         <div class="content">
                             <a href="{{ route('academies.show', ['academy' => $academy]) }}" class="btn btn-block btn-lg">Read more</a>
@@ -51,8 +49,6 @@
                 </div>
             @endforeach
         </div>
-
-        <x-pagination :academies="$academies" />
     </div>
 
     <x-destroy-academy/>

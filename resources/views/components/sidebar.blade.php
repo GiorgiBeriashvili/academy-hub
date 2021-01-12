@@ -10,19 +10,19 @@
         </div>
         <h5 class="sidebar-title">Actions</h5>
         <div class="sidebar-divider"></div>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="{{ route('users.show', ['user' => \Illuminate\Support\Facades\Auth::user()]) }}" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
                     <i class="fa fa-user" aria-hidden="true"></i>
                 </span>
             View Profile
         </a>
-        <a href="{{route('academies.create')}}" class="sidebar-link sidebar-link-with-icon">
+        <a href="{{ route('academies.create') }}" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </span>
             Create Academy
         </a>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="{{ route('users.academies', ['user' => \Illuminate\Support\Facades\Auth::user()]) }}" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
                     <i class="fa fa-university" aria-hidden="true"></i>
                 </span>

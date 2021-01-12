@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Academy\StoreAcademyRequest;
+use App\Http\Requests\Academy\UpdateAcademyRequest;
 use App\Models\Academy;
 use App\Models\Photograph;
 use App\Models\Tag;
 use App\Repositories\Constants;
 use App\Traits\ImageUpload;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
@@ -87,7 +89,7 @@ class AcademyController extends Controller
             $tags = [];
 
             foreach ($tagNames as $tagName) {
-                $tag = Tag::query()->create(['name' => $tagName]);
+                $tag = Tag::query()->firstOrCreate(['name' => $tagName]);
 
                 array_push($tags, $tag);
             }
@@ -121,23 +123,72 @@ class AcademyController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Academy $academy
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function edit(Academy $academy)
+    public function edit(Academy $academy): Factory|View|Application
     {
-        //
+        return view('components.edit-academy', ['academy' => $academy, 'countries' => Constants::countries]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateAcademyRequest $request
      * @param Academy $academy
-     * @return Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, Academy $academy)
+    public function update(UpdateAcademyRequest $request, Academy $academy): RedirectResponse
     {
-        //
+        $academy->update([
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'website' => $request->website,
+            'country' => $request->country,
+            'state' => $request->state,
+            'city' => $request->city,
+            'description' => $request->description,
+            'motto' => $request->motto,
+            'date_of_establishment' => $request->date_of_establishment,
+            'verified' => false,
+        ]);
+
+        if ($request->hasFile('logo')) {
+            $filePath = $this->ImageUpload($request->file('logo'));
+
+            $academy->update(['logo' => $filePath]);
+        }
+
+        if ($request->tags !== null) {
+            $tagNames = explode(' ', $request->tags);
+
+            $tags = [];
+
+            foreach ($tagNames as $tagName) {
+                $tag = Tag::query()->firstOrCreate(['name' => $tagName]);
+
+                array_push($tags, $tag);
+            }
+
+            $tags = collect($tags);
+
+            $academy->tags()->detach($academy->tags()->pluck('id'));
+            $academy->tags()->attach($tags->pluck('id'));
+        }
+
+        if ($request->hasFile('photographs')) {
+            $academy->photographs()->delete();
+
+            foreach($request->file('photographs') as $photograph){
+                $filePath = $this->ImageUpload($photograph);
+
+                Photograph::query()->create([
+                    'academy_id' => $academy->id,
+                    'photograph' => $filePath,
+                ]);
+            }
+        }
+
+        return redirect()->route('academies.show', $academy);
     }
 
     /**
@@ -145,9 +196,35 @@ class AcademyController extends Controller
      *
      * @param Academy $academy
      * @return Response
+     * @throws Exception
      */
-    public function destroy(Academy $academy)
+    public function destroy(Academy $academy): Response
     {
-        //
+        $academy->delete();
+
+        return response("OK");
+    }
+
+    /**
+     * Verify the specified academy.
+     *
+     * @param Academy $academy
+     * @return JsonResponse
+     */
+    public function verify(Academy $academy): JsonResponse
+    {
+        $verified = $academy->verified;
+
+        $academy->update([ $academy->verified = !$verified, ]);
+
+//            $details = [
+//                'greeting' => 'Hello!',
+//                'body' => 'A post got approved!',
+//                'thanks' => 'Thank you!',
+//            ];
+//
+//            Auth::user()->notify(new AcademyVerified($details));
+
+        return response()->json(['verified' => $verified]);
     }
 }

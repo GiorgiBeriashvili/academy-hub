@@ -19,7 +19,7 @@ class UserPolicy
      */
     #[Pure] public function viewAny(User $user): bool
     {
-        return in_array($user->role, Constants::roles);
+        return $user->isAdmin();
     }
 
     /**

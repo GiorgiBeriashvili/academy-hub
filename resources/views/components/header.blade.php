@@ -9,10 +9,10 @@
         @endauth
 
         <a href="{{ route(\App\Providers\RouteServiceProvider::HOME) }}" class="navbar-brand">
-            <x-logo size="32" /> <span style="font-size: 20px; padding-top: 8px; padding-left: 8px;">Academy Hub</span>
+            <x-logo size="32" /> <span class="hidden-sm-and-down" style="font-size: 20px; padding-top: 8px; padding-left: 8px;">Academy Hub</span>
         </a>
 
-        <ul class="navbar-nav d-none d-md-flex" style="padding-top: 4px;">
+        <ul class="navbar-nav d-none d-md-flex hidden-lg-and-down" style="padding-top: 4px;">
             <x-navigation-item type="nav-item" route="/statistics" name="Statistics" />
             <x-navigation-item type="nav-item" route="/about" name="About" />
             <x-navigation-item type="nav-item" route="mailto:support@academy.hub" name="Contact Us" />
@@ -21,9 +21,10 @@
     </div>
 
     <div class="form-inline d-none d-md-flex ml-auto">
-        <form class="form-inline m-auto mr-10" action="..." method="...">
-            <label class="" for="search-academy"><i class="fa fa-filter"></i></label>
-            <div class="input-group">
+        <form class="form-inline m-auto mr-10" action="{{ route('academies.search') }}" enctype="multipart/form-data" method="POST">
+            @csrf
+            <label for="search-academy"><i class="fa fa-filter"></i></label>
+            <div class="input-group @if($errors->has('query')) is-invalid @endif">
                 <input id="search-academy" name="search-academy" type="text" class="form-control" placeholder="Search academy" required="required">
                 <div class="input-group-append">
                     <button class="btn" type="submit">
@@ -34,11 +35,11 @@
             </div>
         </form>
 
-        <button class="btn btn-square" type="button" onclick="window.open('https://github.com/GiorgiBeriashvili/academy-hub', '_blank')">
+        <button class="btn btn-square hidden-md-and-down" type="button" onclick="window.open('https://github.com/GiorgiBeriashvili/academy-hub', '_blank')">
             <i class="fa fa-github" aria-hidden="true"></i>
         </button>
 
-        <a href="https://github.com/GiorgiBeriashvili/academy-hub/stargazers" target="_blank" class="badge mr-10">
+        <a href="https://github.com/GiorgiBeriashvili/academy-hub/stargazers" target="_blank" class="badge mr-10 hidden-md-and-down">
             <i class="fa fa-star mr-5" style="margin-top: 3px;" aria-hidden="true"></i>
             <span class="font-weight-bolder" style="margin-right: 2px;">|</span>
             <span id="star-count"></span> stars
@@ -74,15 +75,16 @@
             </div>
         @endauth
     </div>
-    <div class="navbar-content d-md-none ml-auto">
+    <div class="navbar-content hidden-md-and-up ml-auto">
         <div class="dropdown with-arrow mr-10">
             <button class="btn" data-toggle="dropdown" type="button" id="..." aria-haspopup="true" aria-expanded="false">
                 Search <i class="fa fa-angle-down" aria-hidden="true"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="...">
-                <form class="form-inline m-auto w-200" action="..." method="...">
+                <form class="form-inline m-auto w-200" action="{{ route('academies.search') }}" enctype="multipart/form-data" method="POST">
+                    @csrf
                     <label class="ml-5" for="search-academy"><i class="fa fa-filter"></i></label>
-                    <div class="input-group">
+                    <div class="input-group @if($errors->has('query')) is-invalid @endif">
                         <input id="search-academy" name="search-academy" type="text" class="form-control" placeholder="Search academy" required="required">
                         <div class="input-group-append">
                             <button class="btn" type="submit">

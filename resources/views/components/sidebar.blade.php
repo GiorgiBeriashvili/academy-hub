@@ -34,6 +34,14 @@
                 </span>
             Settings
         </a>
+        @can('create', \Illuminate\Support\Facades\Auth::user())
+        <a href="{{ route('mail.create') }}" class="sidebar-link sidebar-link-with-icon">
+                <span class="sidebar-icon">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+            Mail
+        </a>
+        @endcan
         <br />
         <h5 class="sidebar-title">Documentation</h5>
         <div class="sidebar-divider"></div>

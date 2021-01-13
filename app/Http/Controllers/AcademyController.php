@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Academy\SearchAcademyRequest;
 use App\Http\Requests\Academy\StoreAcademyRequest;
 use App\Http\Requests\Academy\UpdateAcademyRequest;
 use App\Models\Academy;
 use App\Models\Photograph;
 use App\Models\Tag;
+use App\Notifications\AcademyVerified;
 use App\Repositories\Constants;
 use App\Traits\ImageUpload;
 use Exception;
@@ -17,6 +19,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AcademyController extends Controller
 {
@@ -42,6 +45,33 @@ class AcademyController extends Controller
         $academies = Academy::query()->with('tags')->paginate(Constants::academyPerPage);
 
         return view('components.academies', ['academies' => $academies]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param SearchAcademyRequest $request
+     * @return Application|Factory|View
+     */
+    public function search(SearchAcademyRequest $request): Application|Factory|View
+    {
+        $searchAcademy = $request->get('search-academy');
+
+        $academies = Academy::query()
+            ->whereHas('tags', function ($query) use ($searchAcademy) {
+                $query->where('name', 'LIKE', "%$searchAcademy%");
+            })
+            ->orWhere('name', 'LIKE', "%$searchAcademy%")
+            ->orWhere('website', 'LIKE', "%$searchAcademy%")
+            ->orWhere('country', 'LIKE', "%$searchAcademy%")
+            ->orWhere('state', 'LIKE', "%$searchAcademy%")
+            ->orWhere('city', 'LIKE', "%$searchAcademy%")
+            ->orWhere('description', 'LIKE', "%$searchAcademy%")
+            ->orWhere('motto', 'LIKE', "%$searchAcademy%")
+            ->orWhere('date_of_establishment', 'LIKE', "%$searchAcademy%")
+            ->get();
+
+        return view('components.filtered-academies', ['academies' => $academies]);
     }
 
     /**
@@ -217,13 +247,15 @@ class AcademyController extends Controller
 
         $academy->update([ $academy->verified = !$verified, ]);
 
-//            $details = [
-//                'greeting' => 'Hello!',
-//                'body' => 'A post got approved!',
-//                'thanks' => 'Thank you!',
-//            ];
-//
-//            Auth::user()->notify(new AcademyVerified($details));
+        if ($verified) {
+            $details = [
+                'greeting' => 'Hello!',
+                'body' => $academy->name.' got verified!',
+                'thanks' => 'Thank you!',
+            ];
+
+            Auth::user()->notify(new AcademyVerified($details));
+        }
 
         return response()->json(['verified' => $verified]);
     }

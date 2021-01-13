@@ -24,6 +24,17 @@ class AcademyPolicy
     }
 
     /**
+     * Determine whether the user can view any models.
+     *
+     * @param User|null $user
+     * @return bool
+     */
+    public function search(?User $user): bool
+    {
+        return true;
+    }
+
+    /**
      * Determine whether the user can view the model.
      *
      * @param User|null $user

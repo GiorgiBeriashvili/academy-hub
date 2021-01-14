@@ -9,7 +9,7 @@
                 as a university project about implementing a CRUD based web application using <a href="https://laravel.com" class="hyperlink">Laravel</a>.
             </p>
             <p>
-                The project is open-source on <a href="https://github.com/GiorgiBeriashvili/academy-hub" class="hyperlink">GitHub</a>.
+                The project is open-source and hosted on <a href="https://github.com/GiorgiBeriashvili/academy-hub" class="hyperlink">GitHub</a>.
             </p>
             <p>
                 Thank you for being interested!

@@ -37,6 +37,8 @@
         <!-- Modals go here -->
         <!-- Reference: https://www.gethalfmoon.com/docs/modal -->
         <x-image-modal/>
+        <x-getting-started-modal/>
+        <x-guidelines-modal/>
 
         <!-- Page wrapper start -->
 {{--        data-sidebar-hidden="hidden"--}}

@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1b6005f-c6f8-411b-bceb-9273874a4b26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dd3cd2db-d12d-440d-8ef8-c5351d1b00eb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dd3cd2db-d12d-440d-8ef8-c5351d1b00eb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AcademyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AcademyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/AcademyPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/AcademyPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/academies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/academies.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/show-academies.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/show-academies.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/show-academy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/show-academy.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/static.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +208,8 @@
       <workItem from="1610406439729" duration="6697000" />
       <workItem from="1610450912924" duration="13947000" />
       <workItem from="1610479899651" duration="2314000" />
-      <workItem from="1610496036669" duration="7797000" />
+      <workItem from="1610496036669" duration="8115000" />
+      <workItem from="1610569032633" duration="8416000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,7 @@
                  src="{{ asset('placeholder-image.png') }}" alt="User's profile picture"
                  onclick="enhanceImage('{{ \Illuminate\Support\Facades\Auth::id() }}', '{{ \Illuminate\Support\Facades\Auth::user()->avatar ?? asset('placeholder-image.png') }}');" />
             <h4>{{ \Illuminate\Support\Facades\Auth::user()->username }}</h4>
-            <button class="btn btn-block" type="button">Edit Profile</button>
+            <button class="btn btn-block disabled" type="button">Edit Profile</button>
         </div>
         <h5 class="sidebar-title">Actions</h5>
         <div class="sidebar-divider"></div>
@@ -28,7 +28,7 @@
                 </span>
             Show Academies
         </a>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="{{ route('settings') }}" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
                     <i class="fa fa-gear" aria-hidden="true"></i>
                 </span>
@@ -45,19 +45,19 @@
         <br />
         <h5 class="sidebar-title">Documentation</h5>
         <div class="sidebar-divider"></div>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="#getting-started-modal" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
                     <i class="fa fa-rocket" aria-hidden="true"></i>
                 </span>
             Getting Started
         </a>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="#guidelines-modal" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
                     <i class="fa fa-book" aria-hidden="true"></i>
                 </span>
             Guidelines
         </a>
-        <a href="#" class="sidebar-link sidebar-link-with-icon">
+        <a href="{{ route('api.docs') }}" class="sidebar-link sidebar-link-with-icon">
                 <span class="sidebar-icon">
                     <i class="fa fa-code" aria-hidden="true"></i>
                 </span>

@@ -45,8 +45,8 @@
             <span id="star-count"></span> stars
         </a>
 
-        <button class="btn btn-action mr-5" type="button" onClick="halfmoon.toggleDarkMode()">
-            <i class="fa fa-moon-o" aria-hidden="true"></i>
+        <button class="btn btn-action mr-5 dark-mode-toggle" type="button" onClick="halfmoon.toggleDarkMode()">
+            <i class="fa fa-moon-o dark-mode-toggle" aria-hidden="true"></i>
             <span class="sr-only">Toggle dark mode</span>
         </button>
 

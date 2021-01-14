@@ -32,7 +32,7 @@
                                 <!-- Badge group -->
                                 @if(count($academy->tags))
                                     <span class="badge-group align-text-bottom" role="group" aria-label="Tag badges">
-                                        @foreach($academy->tags->slice(0, 3)->all() as $tag) <a href="#" class="badge badge-success text-light-dm text-dark-lm bg-transparent">#{{ $tag->name }}</a> @endforeach
+                                        @foreach($academy->tags->slice(0, 3)->all() as $tag) <span class="badge badge-success text-light-dm text-dark-lm bg-transparent">#{{ $tag->name }}</span> @endforeach
                                         <span class="badge badge-pill badge-success text-light-dm text-dark-lm bg-transparent"><li class="fa fa-tag d-inline align-text-bottom"></li></span>
                                     </span>
                                 @else

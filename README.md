@@ -12,9 +12,9 @@ Academy Hub is a website built themed around the various academies around the wo
 
 Here is the visual preview of the web application:
 
-![Register](https://github.com/GiorgiBeriashvili/academy-hub/blob/main/assets/sidebar.png "Visual Preview of Academy Hub")
+![Visual Preview](https://github.com/GiorgiBeriashvili/academy-hub/blob/main/assets/sidebar.png "Visual Preview of Academy Hub")
 
-To see more screenshots, refer to [assets](https://github.com/GiorgiBeriashvili/academy-hub/blob/main/assets "Assets directory on GitHub") directory.
+To see more screenshots, refer to the [assets](https://github.com/GiorgiBeriashvili/academy-hub/blob/main/assets "Assets directory on GitHub") directory.
 
 ---
 
